@@ -2711,6 +2711,7 @@ class Registro1010(Registro):
         Campo(11, 'IND_GIAF1'),
         Campo(12, 'IND_GIAF3'),
         Campo(13, 'IND_GIAF4'),
+        Campo(14, 'IND_REST_RESSARC_COMPL_ICMS'),
     ]
 
 
