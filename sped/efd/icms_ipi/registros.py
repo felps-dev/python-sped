@@ -39,6 +39,14 @@ class Registro0001(Registro):
         Campo(2, 'IND_MOV'),
     ]
 
+class Registro0002(Registro):
+    """
+    CLASSIFICAÇÃO DO ESTABELECIMENTO INDUSTRIAL OU EQUIPARADO A INDUSTRIAL
+    """
+    campos = [
+        CampoFixo(1, 'REG', '00020'),
+        Campo(2, 'CLAS_ESTAB_IND'),
+    ]
 
 class Registro0005(Registro):
     """
