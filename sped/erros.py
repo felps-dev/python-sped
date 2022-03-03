@@ -10,12 +10,13 @@ class RegistroError(Exception):
 
 
 class CampoError(RegistroError):
-    def __init__(self, registro, campo):
+    def __init__(self, registro, campo, valor = None):
         super(CampoError, self).__init__(registro)
         self._campo = campo
+        self._valor = valor
 
     def __str__(self):
-        return u'{0} -> {1}'.format(self._registro.__class__.__name__, self._campo)
+        return u'{0} -> {1}. Valor: {2}'.format(self._registro.__class__.__name__, self._campo, str(self._valor))
 
 
 class CampoFixoError(CampoError):

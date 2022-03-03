@@ -58,9 +58,9 @@ class Campo(object):
             registro.valores[self._indice] = ''
             return
         if valor and not self.__class__.validar(valor):
-            raise FormatoInvalidoError(registro, self.nome)
+            raise FormatoInvalidoError(registro, self.nome, valor)
         if not isinstance(valor, str):
-            raise FormatoInvalidoError(registro, self.nome)
+            raise FormatoInvalidoError(registro, self.nome, valor)
         registro.valores[self._indice] = valor or ''
 
     @staticmethod
@@ -97,7 +97,7 @@ class CampoFixo(Campo):
 
     def set(self, registro, valor):
         if valor != self._valor:
-            raise CampoFixoError(registro, self.nome)
+            raise CampoFixoError(registro, self.nome, valor)
 
 
 class CampoAlfanumerico(Campo):
@@ -134,7 +134,7 @@ class CampoBool(Campo):
         elif valor is None:
             super().set(registro, None)
         else:
-            raise FormatoInvalidoError(registro, self.nome)
+            raise FormatoInvalidoError(registro, self.nome, valor)
 
 
 class CampoNumerico(Campo):
@@ -174,7 +174,7 @@ class CampoNumerico(Campo):
         elif not valor:
             super().set(registro, '0')
         else:
-            raise FormatoInvalidoError(registro, self.nome)
+            raise FormatoInvalidoError(registro, self.nome, valor)
 
 
 class CampoData(Campo):
@@ -193,7 +193,7 @@ class CampoData(Campo):
         elif not valor:
             super().set(registro, None)
         else:
-            raise FormatoInvalidoError(registro, self.nome)
+            raise FormatoInvalidoError(registro, self.nome, valor)
 
 
 class CampoRegex(Campo):
@@ -207,7 +207,7 @@ class CampoRegex(Campo):
         if not valor or self._regex.match(valor):
             super().set(registro, valor)
         else:
-            raise FormatoInvalidoError(registro, str(self))
+            raise FormatoInvalidoError(registro, str(self), valor)
 
     # def __repr__(self):
     #     return '' f'{self.__class__.__name__}({self.indice}, {self.nome}, {self._obrigatorio}, {self._regex})'
