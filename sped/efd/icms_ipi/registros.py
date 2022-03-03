@@ -775,6 +775,16 @@ class RegistroC190(Registro):
         Campo(11, 'VL_IPI'),
         Campo(12, 'COD_OBS'),
     ]
+class RegistroC191(Registro):
+    """
+    INFORMAÇÕES DO FUNDO DE COMBATE À POBREZA – FCP – NA NFe (CÓDIGO 55) E NA NFC-E (CÓDIGO 65)
+    """
+    campos = [
+        CampoFixo(1, 'REG', 'C191'),
+        CampoNumerico(2, 'VL_FCP_OP'),
+        CampoNumerico(3, 'VL_FCP_ST'),
+        CampoNumerico(4, 'VL_FCP_RET'),
+    ]
 
 
 class RegistroC195(Registro):
